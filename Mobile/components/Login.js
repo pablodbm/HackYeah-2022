@@ -65,7 +65,7 @@ const Login = ({ navigation }) => {
         email: email,
         password: password
       }
-      const url = "https://gibapp-pickapp-api.herokuapp.com/public/api/login"
+      const url = "https://markow.pl/API/public/api/login"
       await fetch(url, {
         method: "POST",
         headers: {

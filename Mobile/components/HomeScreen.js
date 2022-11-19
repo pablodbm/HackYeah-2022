@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Text, View, ImageBackground, TouchableOpacity, Alert, ActivityIndicator } from "react-native";
 import Bg from "../assets/backgroundStart.jpg";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { validate } from "react-native-web/dist/cjs/exports/StyleSheet/validate";
 
 export default function HomeScreen({ navigation }) {
 
@@ -19,7 +18,7 @@ export default function HomeScreen({ navigation }) {
     }
 
     const validateUser = (token) => {
-      const url = "https://gibapp-pickapp-api.herokuapp.com/public/api/user/me"
+      const url = "https://markow.pl/API/public/api/user/me"
       fetch(url, {
         headers: {
           Authorization: "Bearer " + token,

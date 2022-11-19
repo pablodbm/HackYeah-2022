@@ -3,8 +3,6 @@ import { StyleSheet, Image, Alert } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Map from "./Map";
 import List from "./List";
-import Create from "./Create";
-import My from "./My";
 import Account from "./Account";
 import Details from "./Details";
 import MapIcon from "../assets/icons/map.png";
@@ -67,7 +65,7 @@ const MainMenu = ({ route }) => {
           headerTintColor: "#ffffff",
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Add"
         component={Create}
         options={{
@@ -80,8 +78,8 @@ const MainMenu = ({ route }) => {
             />
           ),
         }}
-      />
-      <Tab.Screen
+      /> */}
+      {/* <Tab.Screen
         name="My"
         component={My}
         options={{
@@ -93,7 +91,7 @@ const MainMenu = ({ route }) => {
             />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Details"
         component={Details}

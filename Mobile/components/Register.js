@@ -79,7 +79,7 @@ const Register = ({ navigation }) => {
                 password: password,
                 phone: phone
             }
-            const url = "https://gibapp-pickapp-api.herokuapp.com/public/api/register"
+            const url = "https://markow.pl/API/public/api/register"
             setFetchOngoing(true)
             await fetch(url, {
                 method: "POST",
