@@ -114,7 +114,7 @@ const List = (props) => {
     <View style={{ flex: 1 }}>
       <View style={styles.header}>
         <Text style={styles.text}>Categories:</Text>
-        <ScrollView horizontal={true}>
+        <ScrollView horizontal={true} persistentScrollbar={true}>
           <CategoriesProfile onClick={controlBread} name={"Bread"} len={chosenCat.length}/>
           <CategoriesProfile onClick={controlDairy} name={"Dairy"} />
           <CategoriesProfile onClick={controlGrains} name={"Grains"} />
