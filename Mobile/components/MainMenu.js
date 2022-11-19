@@ -19,21 +19,11 @@ const MainMenu = ({ route }) => {
 
   const { token, userData } = route.params;
   const MapScreen = () => <Map token={token} />;
-  const ListScreen = () =><List token={token}/>
+  const ListScreen = () => <List token={token} />
+  const AccountScreen = () => <Account token={token} userData={userData} />;
   const [accessToken, setAccessToken] = useState();
   const [user, setUser] = useState(userData);
 
-  useEffect(() => {
-    async function getToken() {
-      try {
-        const token = await AsyncStorage.getItem("access_token");
-        if (token != undefined) setAccessToken(token);
-      } catch (e) {
-        navigation.navigate("HomeScreen");
-      }
-    }
-    getToken();
-  }, []);
   return (
     <Tab.Navigator
       initialRouteName="Map"
@@ -112,7 +102,7 @@ const MainMenu = ({ route }) => {
 
       <Tab.Screen
         name="Account"
-        component={Account}
+        component={AccountScreen}
         options={{
           tabBarIcon: () => (
             <Image
