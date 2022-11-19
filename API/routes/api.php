@@ -22,7 +22,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/user/me', [UserController::class, 'me']);
-    Route::get('/user/{user_id}', [UserController::class, 'user_details']);
+    Route::get('/user/details/{user_id}', [UserController::class, 'user_details']);
     Route::delete('/user/{user}', [UserController::class, 'delete']);
     Route::post('/user/edit', [UserController::class, 'edit']);
 

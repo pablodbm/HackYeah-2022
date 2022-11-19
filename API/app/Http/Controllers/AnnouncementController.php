@@ -13,7 +13,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::where('user_id', '!=', auth()->id())->get();
+        $announcements = Announcement::where('user_id', '!=', auth()->id())->orderBy('id', 'DESC')->get();
         return response()->json(['announcements' => $announcements]);
     }
 
