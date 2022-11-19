@@ -7,10 +7,24 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-
+    /**
+     * @return array
+     * Returns array of details of logged user
+     */
     public function me()
     {
         return ['user' => auth()->user()];
+    }
+
+    /**
+     * @param $user_id - DB id of user
+     * Returns array of details of selected user
+     */
+    public function user_details($user_id)
+    {
+        $details = User::where('id', $user_id)->first();
+
+        return response()->json(['user' => $details]);
     }
 
     /**
