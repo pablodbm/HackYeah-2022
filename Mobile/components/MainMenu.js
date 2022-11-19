@@ -6,6 +6,7 @@ import List from "./List";
 import Account from "./Account";
 import My from "./My";
 import Details from "./Details";
+import Create from "./Create";
 import MapIcon from "../assets/icons/map.png";
 import ListIcon from "../assets/icons/listt.png";
 import AddIcon from "../assets/icons/add2.png";
@@ -21,6 +22,7 @@ const MainMenu = ({ route }) => {
   const ListScreen = () => <List token={token} />
   const AccountScreen = () => <Account token={token} userData={userData} />;
   const MyScreen = () => <My token={token} />;
+  const CreateScreen = () => <Create token={token} />
   const [accessToken, setAccessToken] = useState();
   const [user, setUser] = useState(userData);
 
@@ -68,9 +70,9 @@ const MainMenu = ({ route }) => {
           headerTintColor: "#ffffff",
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="Add"
-        component={Create}
+        component={CreateScreen}
         options={{
           title: "",
           tabBarIcon: () => (
@@ -81,7 +83,7 @@ const MainMenu = ({ route }) => {
             />
           ),
         }}
-      /> */}
+      />
       <Tab.Screen
         name="My"
         component={MyScreen}
