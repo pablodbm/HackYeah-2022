@@ -31,6 +31,7 @@ const MainMenu = ({ route }) => {
         headerShown: false,
         tabBarActiveTintColor: "gold",
         tabBarInactiveTintColor: "white",
+        tabBarHideOnKeyboard:true,
         tabBarStyle: {
           color: "white",
           backgroundColor: "#3D550C",
