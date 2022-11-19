@@ -19,6 +19,7 @@ const MainMenu = ({ route }) => {
   const MapScreen = () => <Map token={token} />;
   const ListScreen = () => <List token={token} />
   const AccountScreen = () => <Account token={token} userData={userData} />;
+  const MyScreen = () => <My token={token} />;
   const [accessToken, setAccessToken] = useState();
   const [user, setUser] = useState(userData);
 
@@ -79,9 +80,9 @@ const MainMenu = ({ route }) => {
           ),
         }}
       /> */}
-      {/* <Tab.Screen
+      <Tab.Screen
         name="My"
-        component={My}
+        component={MyScreen}
         options={{
           tabBarIcon: () => (
             <Image
@@ -91,7 +92,7 @@ const MainMenu = ({ route }) => {
             />
           ),
         }}
-      /> */}
+      />
       <Tab.Screen
         name="Details"
         component={Details}
