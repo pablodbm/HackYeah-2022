@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Map from "./Map";
 import List from "./List";
 import Account from "./Account";
+import My from "./My";
 import Details from "./Details";
 import MapIcon from "../assets/icons/map.png";
 import ListIcon from "../assets/icons/listt.png";
