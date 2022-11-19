@@ -49,7 +49,7 @@ const Account = (props) => {
     const logOut = async () => {
         try {
             await AsyncStorage.removeItem("access_token");
-            //navigation.navigate('Home')
+            navigation.navigate('Home')
         } catch (err) {
             console.log(err)
         }
