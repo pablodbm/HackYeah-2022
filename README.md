@@ -22,9 +22,9 @@ Project created for  the **HackYeah 2022**
 
 ## Team members
 
-***Adam Kot***  
-***Kacper Przełożny***  
-***Paweł Słota***  
 ***Maksymilian Markow***  
 ***Mateusz Panuś***  
+***Paweł Słota***  
+***Adam Kot***  
+***Kacper Przełożny***  
 
