@@ -4,7 +4,8 @@ import { Text, View, ActivityIndicator, StyleSheet } from 'react-native';
  
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
- 
+import { useNavigation } from '@react-navigation/native'
+
 const Map = (props) => {
  
  
@@ -17,7 +18,8 @@ const Map = (props) => {
     longitudeDelta: 0,
   });
   const [locationLoaded, setLocationLoaded] = useState(false)
- 
+  
+  const navigation = useNavigation();
  
   useEffect(() => {
     const getCurrentLocation = async () => {
@@ -36,7 +38,6 @@ const Map = (props) => {
       })
     }
     getCurrentLocation()
-    console.log(region)
   }, [])
  
   useEffect(() => {
@@ -57,7 +58,6 @@ const Map = (props) => {
     };
  
     getAllAnnouncements();
- 
     setLocationLoaded(true)
  
   }, [region]);
@@ -75,6 +75,12 @@ const Map = (props) => {
             announcements.map((announcement) => {
                 return(
                 <Marker 
+                  onPress={()=>{
+                    console.log(announcement)
+                    navigation.navigate("Details", {
+                      token: token, data: announcement
+                    })
+                  }}
                   key={announcement.id}
                   coordinate = {{latitude: parseFloat(announcement.lat),longitude: parseFloat(announcement.lon)}}
                   pinColor = {"red"} // any color
