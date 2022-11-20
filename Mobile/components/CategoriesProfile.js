@@ -4,7 +4,6 @@ const CategoriesProfile = (props) => {
   let a;
 
   let arr = props.name.toLowerCase();
-  console.log(arr.toLowerCase());
 
   if (arr == "drinkables") {
     a = require(`../assets/icons/drinkables.png`);
@@ -24,6 +23,10 @@ const CategoriesProfile = (props) => {
     a = require(`../assets/icons/sweets.png`);
   } else if (arr == "drinkables") {
     a = require(`../assets/icons/drinkables.png`);
+  } else if (arr == "others") {
+    a = require(`../assets/icons/otherCat.png`)
+  } else if (arr == "many") {
+    a = require(`../assets/icons/manyCat.png`)
   }
   const [pressed, setPressed] = useState(false);
 
@@ -37,11 +40,31 @@ const CategoriesProfile = (props) => {
       <View style={{ padding: 10 }}>
         <TouchableOpacity
           onPress={() => {
-          
-              setPressed((pressed) => !pressed);
-               
+            setPressed(true)
+            if(props.cat == arr){
+              return true
+            }
+            if(props.cat !== arr){
+              setPressed(false)
+              props.onClick(arr);
+            }
+            // setPressed(true)
+            // toggleCount
+            // console.log(props.count)
+            // props.onClick()
+            // if (arr !== props.cat && props.cat !== "all") {
+            //   console.log("arr = " + arr)
+            //   console.log("props = " + props.cat)
+            //   // props.toggleCount(-1)
+            //   // console.log("chuj")
+            //   setPressed(false)
+            // }else{
+            //   props.toggleCount(!pressed ? 1 : -1)
+            //   setPressed(true)
+            // }
+            // props.onClick(arr);
+            // console.log(pressed)
 
-            props.onClick(pressed);
           }}
         >
           <Image source={a} style={styles.image} />
