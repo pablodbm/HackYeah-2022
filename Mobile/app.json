@@ -21,13 +21,24 @@
       "supportsTablet": true
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyA9dQ-fb5qZJB8an3FkPXW9yw8JhVQa8UE"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/logoPickApp.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.adamkoot.Mobile"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3fc8bde6-6eb2-408d-9943-b21301f3b34e"
+      }
     }
   }
 }

@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, ScrollView, StyleSheet, Button, Image, TouchableOpacity, ImageEditor } from "react-native";
-import CategoriesProfile from "./CategoriesProfile";
 import ListPosition from "./ListPosition";
 
 const List = (props) => {
 
   const [data, setData] = useState([]);
   const [token, setToken] = useState(props.token);
-  const [selectedCat, setSelectedCat] = useState()
   const [chosenCat, setChosenCat] = useState("all");
   const [countSelected, setCountSelected] = useState(0)
   const [catToDelete, setCatToDelete] = useState("all")
