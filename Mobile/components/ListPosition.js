@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const ListPosition = (props) => {
   const navigation = useNavigation();
-
+ 
   const [dist, setDist] = useState(0);
   useEffect(() => {
     const getCurrentLocation = async () => {
@@ -29,11 +29,13 @@ const ListPosition = (props) => {
       setDist(dis / 1000);
     };
     getCurrentLocation();
+    
   }, []);
   // const a = require(`../assets/eggs.png`)
+
   let a;
   let arr = props.item.categories.split(",");
-  console.log(arr)
+
   if (arr.length > 1) {
     a = require(`../assets/icons/manyCat.png`);
   } else if (arr == "drinkables") {
@@ -54,6 +56,8 @@ const ListPosition = (props) => {
     a = require(`../assets/icons/sweets.png`);
   } else if (arr == "drinkables") {
     a = require(`../assets/icons/drinkables.png`);
+  } else if (arr == "others") {
+    a = require(`../assets/icons/otherCat.png`);
   }
 
 
@@ -74,7 +78,7 @@ const ListPosition = (props) => {
           {props.item.title}
         </Text>
       </View>
-     
+
 
       <View style={styles.distance}>
         <Text>{dist.toFixed(2)} KM</Text>
