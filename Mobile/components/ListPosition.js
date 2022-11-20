@@ -81,8 +81,8 @@ const ListPosition = (props) => {
 
 
       <View style={styles.distance}>
-        <Text>{dist.toFixed(2)} KM</Text>
-        <Text>away</Text>
+        <Text style={{color:'green'}}>{dist.toFixed(2)} KM</Text>
+        <Text style={{color:'green'}}>away</Text>
       </View>
     </TouchableOpacity>
   );
