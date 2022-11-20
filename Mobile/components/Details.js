@@ -8,6 +8,7 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  Linking
 } from "react-native";
 const Details = ({ route }) => {
   const token = route.params.token;
@@ -18,8 +19,7 @@ const Details = ({ route }) => {
   const [status, setStatus] = useState(item.status);
 
   useEffect(() => {
-    // Update the document title using the browser API
-
+    console.log(item)
     const getUserInfo = async () => {
       const url =
         "https://markow.pl/API/public/api/user/details/" +
@@ -83,8 +83,7 @@ const Details = ({ route }) => {
     <ImageBackground source={Bg} style={{ width: "100%", height: "100%" }}>
       <View style={styles.header}>
         <View
-          style={{ backgroundColor: "white", borderRadius: 90, padding: 25 }}
-        >
+          style={{ backgroundColor: "white", borderRadius: 90, padding: 20 }}>
           <Image source={a} />
         </View>
         <Text style={styles.topTitle}>{item.title}</Text>
@@ -105,12 +104,16 @@ const Details = ({ route }) => {
           <Text>{data.phone}</Text>
         </View>
         <View style={styles.button}>
-          <TouchableOpacity
-            onPress={changeStatus}
-            style={styles.btn}
-          >
+          <TouchableOpacity onPress={changeStatus} style={styles.btn}>
             <Text style={status ? styles.textClose : styles.textOpen}>
               Reserve
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={()=>{
+            Linking.openURL("http://play.google.com/store/apps/details?id=com.glovo")
+          }}>
+            <Text style={{color: "orange"}}>
+              Delivery by Glovo!
             </Text>
           </TouchableOpacity>
         </View>
@@ -145,6 +148,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: "white",
     borderRadius: 20,
+    marginTop:2
   },
   textOpen: {
     color: "green",
@@ -158,7 +162,7 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   block: {
-    margin: 20,
+    margin: 10,
   },
   title: {
     fontWeight: "bold",

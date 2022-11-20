@@ -14,9 +14,9 @@ import Bg from "../assets/backgroundStart.jpg";
 import { useNavigation } from "@react-navigation/native";
 
 const Create = (props) => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   const [token, setToken] = useState(props.token);
-  const [selectedCat, setSelectedCat] = useState();
+  const [selectedCat, setSelectedCat] = useState("drinkables");
 
   const K_OPTIONS = [
     {
@@ -182,6 +182,7 @@ const Create = (props) => {
               {K_OPTIONS.map((item) => {
                 return (
                   <Picker.Item
+                    style={{fontSize:20, fontWeight: "bold"}}
                     label={item.name}
                     value={item.id}
                     key={item.id}
@@ -265,6 +266,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     color: "black",
+  },
+  pickerItems: {
+    height: 88,
+    color: 'red'
   },
 });
 export default Create;

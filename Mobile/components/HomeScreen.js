@@ -24,7 +24,6 @@ export default function HomeScreen({ navigation }) {
         });
       } else {
         AsyncStorage.removeItem("access_token");
-        setGetToken(true);
       }
     };
 
@@ -43,11 +42,8 @@ export default function HomeScreen({ navigation }) {
     const getToken = async () => {
       try {
         const token = await AsyncStorage.getItem("access_token");
-
         if (token != undefined) {
           validateUser(token);
-        } else {
-          setGetToken(true);
         }
       } catch (e) {
         console.log(e);
@@ -55,31 +51,29 @@ export default function HomeScreen({ navigation }) {
     };
     getToken();
   }, []);
-
+  console.log(getToken)
   return (
     <ImageBackground source={Bg} style={{ flex: 1 }}>
-      <View style={{ flex: 3, padding: 25 }}>
+      <View style={{ flex: 3, padding: 10 }}>
         <Text
           style={{
             color: "white",
-            padding: 0,
+            padding: 15,
             fontSize: 48,
             fontWeight: "bold",
-          }}
-        >
+          }}>
           PickApp
         </Text>
       </View>
-      {getToken ? (
+      {!getToken ? (
         <>
           <View
             style={{
               flex: 8,
               flexDirection: "column",
               justifyContent: "flex-end",
-              paddingHorizontal: 15,
-            }}
-          >
+              padding: 10,
+            }}>
             <Text style={{ color: "white", fontSize: 36 }}>
               Reduce food waste
             </Text>
@@ -88,7 +82,7 @@ export default function HomeScreen({ navigation }) {
               an estimated 54 kg per Polish citizen per year.
             </Text>
           </View>
-          <View style={{ flex: 4, paddingHorizontal: 15, paddingTop: 10 }}>
+          <View style={{ flex: 4 }}>
             <TouchableOpacity
               style={{
                 alignItems: "center",
@@ -101,11 +95,9 @@ export default function HomeScreen({ navigation }) {
               }}
               onPress={() => {
                 navigation.navigate("Login");
-              }}
-            >
+              }}>
               <Text
-                style={{ fontSize: 20, color: "#59981A", fontWeight: "bold" }}
-              >
+                style={{ fontSize: 20, color: "#59981A", fontWeight: "bold" }}>
                 Log in
               </Text>
             </TouchableOpacity>
@@ -123,11 +115,9 @@ export default function HomeScreen({ navigation }) {
               }}
               onPress={() => {
                 navigation.navigate("Register");
-              }}
-            >
+              }}>
               <Text
-                style={{ fontSize: 20, color: "#FFFFFF", fontWeight: "bold" }}
-              >
+                style={{ fontSize: 20, color: "#FFFFFF", fontWeight: "bold" }}>
                 Sign up
               </Text>
             </TouchableOpacity>
@@ -139,8 +129,7 @@ export default function HomeScreen({ navigation }) {
             flex: 1,
             alignItems: "center",
             justifyContent: "flex-start",
-          }}
-        >
+          }}>
           <ActivityIndicator color="#3d550c" size="large" />
         </View>
       )}

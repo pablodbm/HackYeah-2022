@@ -66,9 +66,9 @@ const Login = ({ navigation }) => {
       setFetchOngoing(true);
       const data = {
         email: email.trim(),
-        password: password,
-      };
-      const url = "https://markow.pl/API/public/api/login";
+        password: password
+      }
+      const url = "https://markow.pl/API/public/api/login"
       await fetch(url, {
         method: "POST",
         headers: {
