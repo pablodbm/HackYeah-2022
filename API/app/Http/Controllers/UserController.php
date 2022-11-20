@@ -37,7 +37,6 @@ class UserController extends Controller
             'id' => 'required',
             'name' => 'required|max:255',
             'email' => 'email|required',
-            'password' => 'required',
             'phone' => 'required|max:9'
         ]);
 
@@ -45,7 +44,6 @@ class UserController extends Controller
             [
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password,
                 'phone' => $request->phone
             ]
         );

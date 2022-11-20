@@ -13,7 +13,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::where('user_id', '!=', auth()->id())->orderBy('id', 'DESC')->get();
+        $announcements = Announcement::where('user_id', '!=', auth()->id())->where('status', 0)->orderBy('id', 'DESC')->get();
         return response()->json(['announcements' => $announcements]);
     }
 
@@ -43,7 +43,7 @@ class AnnouncementController extends Controller
             'categories' => 'required'
         ]);
 
-        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['user_id'] = auth()->id();
 
         $announcement = Announcement::create($validatedData);
 
@@ -71,7 +71,7 @@ class AnnouncementController extends Controller
     public function change_status($announcement_id, $status)
     {
         Announcement::where('id', $announcement_id)->update(
-            array('status', $status)
+            array('status' => $status)
         );
 
         return response()->json(['message' => "Suucessfully changed status of id:".$announcement_id.' for:'.$status]);
